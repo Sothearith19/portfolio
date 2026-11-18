@@ -86,7 +86,7 @@
 
         try {
             // Public contribution data; no GitHub token is needed in this static site.
-            const response = await fetch("https://github-contributions-api.jogruber.de/v4/andrefetch?y=last", {
+            const response = await fetch("https://github-contributions-api.jogruber.de/v4/Sothearith19?y=last", {
                 signal: controller.signal,
             });
             if (!response.ok) throw new Error("Unable to load contributions");
