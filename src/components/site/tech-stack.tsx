@@ -1,8 +1,13 @@
 import { CodeIcon } from "lucide-react";
 import type { IconType } from "react-icons";
-import { FaCode } from "react-icons/fa6";
+import { FaCode, FaJava } from "react-icons/fa6";
+import { PiMicrosoftExcelLogo, PiMicrosoftWordLogo } from "react-icons/pi";
 import {
+  SiCplusplus,
   SiCss,
+  SiPhp,
+  SiSpringboot,
+  SiXampp,
   SiDocker,
   SiFigma,
   SiFramer,
@@ -22,10 +27,17 @@ import {
   SiVercel,
 } from "react-icons/si";
 import { Reveal, Section } from "@/components/site/section";
-import { techStack } from "@/data/portfolio";
+import { otherSkills, techStack } from "@/data/portfolio";
 
 /** Add an entry here if you add a technology to techStack that needs a logo. */
 const icons: Record<string, { icon: IconType; color: string }> = {
+  "C++": { icon: SiCplusplus, color: "#00599C" },
+  Java: { icon: FaJava, color: "#E76F00" },
+  PHP: { icon: SiPhp, color: "#777BB4" },
+  "Spring Boot": { icon: SiSpringboot, color: "#6DB33F" },
+  XAMPP: { icon: SiXampp, color: "#FB7A24" },
+  Word: { icon: PiMicrosoftWordLogo, color: "#2B579A" },
+  Excel: { icon: PiMicrosoftExcelLogo, color: "#217346" },
   HTML: { icon: SiHtml5, color: "#E34F26" },
   CSS: { icon: SiCss, color: "#663399" },
   JavaScript: { icon: SiJavascript, color: "#F7DF1E" },
@@ -69,8 +81,8 @@ export function TechStack() {
     <Section
       id="stack"
       eyebrow="Toolbox"
-      title="Tech I work with"
-      description="The languages, frameworks, and tools I reach for, and I'm always adding more."
+      title="Skills & tools"
+      description="The languages, frameworks, and tools I work with, plus the skills I bring to every team."
     >
       <Reveal>
         <div className="mask-fade-edges group/marquee flex overflow-hidden [--marquee-duration:35s] [--marquee-gap:0.75rem]">
@@ -88,7 +100,7 @@ export function TechStack() {
         </div>
       </Reveal>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-2">
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {Object.entries(techStack).map(([group, items], i) => (
           <Reveal key={group} delay={i * 0.1}>
             <div className="h-full rounded-2xl border bg-card/60 p-6 backdrop-blur">
@@ -98,6 +110,24 @@ export function TechStack() {
                   <TechPill key={name} name={name} />
                 ))}
               </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <div className="mt-5 grid gap-5 sm:grid-cols-3">
+        {Object.entries(otherSkills).map(([group, items], i) => (
+          <Reveal key={group} delay={i * 0.1}>
+            <div className="h-full rounded-2xl border bg-card/60 p-6 backdrop-blur">
+              <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">{group}</p>
+              <ul className="space-y-1.5">
+                {items.map((name) => (
+                  <li key={name} className="flex items-center gap-2.5 text-sm">
+                    <span className="size-1.5 rounded-full bg-gradient-to-br from-brand to-brand-2" />
+                    {name}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         ))}

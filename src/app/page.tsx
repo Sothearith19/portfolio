@@ -1,4 +1,5 @@
 import { About } from "@/components/site/about";
+import { Awards } from "@/components/site/awards";
 import { Background } from "@/components/site/background";
 import { Contact } from "@/components/site/contact";
 import { Experience } from "@/components/site/experience";
@@ -25,6 +26,7 @@ export default function Home() {
         <div className="mx-auto -mt-16 w-full max-w-5xl px-5">
           <GitHubActivity />
         </div>
+        <Awards />
         <Contact />
       </main>
       <Footer />

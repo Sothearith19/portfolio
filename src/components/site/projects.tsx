@@ -74,7 +74,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
           <div className="relative flex flex-col p-6">
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-heading text-xl font-semibold tracking-tight">{project.title}</h3>
+              <div>
+                <h3 className="font-heading text-xl font-semibold tracking-tight">{project.title}</h3>
+                {project.subtitle && <p className="mt-0.5 text-sm text-brand">{project.subtitle}</p>}
+              </div>
               {href && (
                 <a
                   href={href}
@@ -125,8 +128,8 @@ export function Projects() {
     <Section
       id="projects"
       eyebrow="Selected work"
-      title="Things I've built"
-      description="A few projects I'm proud of, from experiments to real products."
+      title="Research & projects"
+      description="From security research to web platforms that help students and communities."
     >
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((project, i) => (

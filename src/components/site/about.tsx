@@ -9,7 +9,7 @@ export function About() {
       eyebrow="About me"
       title={
         <>
-          Curious by nature, <span className="text-gradient">builder</span> by choice.
+          Where business, technology &amp; <span className="text-gradient">security</span> meet.
         </>
       }
     >

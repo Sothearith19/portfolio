@@ -48,9 +48,9 @@ function RotatingRole() {
 
 const terminalLines = [
   { prompt: "whoami", out: profile.name },
-  { prompt: "location", out: profile.location },
+  { prompt: "major", out: profile.major },
   { prompt: "school", out: profile.school.name },
-  { prompt: "status", out: profile.status },
+  { prompt: "focus", out: "Information security awareness" },
 ];
 
 function TerminalCard() {
