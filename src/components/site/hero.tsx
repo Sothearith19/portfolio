@@ -1,13 +1,21 @@
 "use client";
 
 import { AnimatePresence, motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { ArrowDownIcon, ArrowRightIcon, CheckIcon, CopyIcon, FileTextIcon, MapPinIcon } from "lucide-react";
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  CheckIcon,
+  CopyIcon,
+  FileTextIcon,
+  GraduationCapIcon,
+  MapPinIcon,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useCopy } from "@/components/site/use-copy";
-import { profile, socials } from "@/data/portfolio";
+import { profile, scholarships, socials } from "@/data/portfolio";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -51,6 +59,7 @@ const terminalLines = [
   { prompt: "major", out: profile.major },
   { prompt: "school", out: profile.school.name },
   { prompt: "focus", out: "Information security awareness" },
+  { prompt: "honors", out: `🎓 ${scholarships.length}× full scholarship recipient` },
 ];
 
 function TerminalCard() {
@@ -111,7 +120,7 @@ export function Hero() {
     <section id="top" className="relative mx-auto flex min-h-svh w-full max-w-5xl flex-col justify-center px-5 pt-28 pb-16">
       <div className="grid items-center gap-14 lg:grid-cols-[1.25fr_1fr]">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.div variants={item}>
+          <motion.div variants={item} className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -119,6 +128,13 @@ export function Hero() {
               </span>
               {profile.status}
             </span>
+            <a
+              href="#scholarships"
+              className="group relative inline-flex items-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-[length:200%_auto] px-3 py-1 text-xs font-semibold text-amber-950 shadow-md shadow-amber-500/30 animate-shine"
+            >
+              <GraduationCapIcon className="size-3.5 transition-transform group-hover:-rotate-12" />
+              {scholarships.length}× Full Scholarship Recipient
+            </a>
           </motion.div>
 
           <motion.h1

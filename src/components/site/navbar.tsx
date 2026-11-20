@@ -11,10 +11,10 @@ import { profile } from "@/data/portfolio";
 
 const links = [
   { id: "about", label: "About" },
+  { id: "scholarships", label: "Scholarships" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "stack", label: "Skills" },
-  { id: "awards", label: "Awards" },
   { id: "contact", label: "Contact" },
 ];
 

@@ -21,7 +21,7 @@ export const profile = {
   tagline:
     "Final-year MIS student with a growing focus on information security: researching how people stay safe online, building web apps, and organizing student events.",
   about: [
-    "I'm a final-year Management Information Systems student at Paragon International University in Phnom Penh, studying on a full scholarship.",
+    "I'm a final-year Management Information Systems student at Paragon International University in Phnom Penh. I was offered full scholarships by three universities (Paragon IU, CamTech University, and the University of Cambodia) and chose Paragon IU.",
     "My focus is shifting toward information security. For my final-year project, I'm researching security awareness among Paragon IU students and staff: surveying the community, studying the human factors behind security risks, and turning the data into practical recommendations for the university.",
     "Alongside research, I build web applications with PHP, MySQL, and JavaScript, and I love bringing people together through events like the MIS Challenge.",
   ],
@@ -29,7 +29,7 @@ export const profile = {
   facts: [
     { label: "Studying", value: "MIS @ Paragon IU" },
     { label: "Researching", value: "Information security awareness" },
-    { label: "Scholarship", value: "Full scholarship recipient" },
+    { label: "Scholarships", value: "3 full scholarships offered" },
     { label: "Languages", value: "Khmer (native) · English (fluent)" },
   ],
   email: "sothearithhorn0@gmail.com",
@@ -178,17 +178,44 @@ export const otherSkills = {
   Languages: ["Khmer (native)", "English (fluent)"],
 } as const;
 
-export type Award = { title: string; detail: string; glyph: string };
+export type Scholarship = {
+  school: string;
+  url?: string;
+  /** Short status shown on the card, e.g. "Awarded & accepted" or "Offered". */
+  status: string;
+  note: string;
+  /** Highlights the scholarship you accepted. */
+  accepted?: boolean;
+};
 
-export const awards: Award[] = [
+/** Shown in the gold Scholarships spotlight section. */
+export const scholarships: Scholarship[] = [
   {
-    title: "Full Scholarships",
-    detail: "Offered by Paragon International University, CamTech University, and the University of Cambodia",
-    glyph: "🎓",
+    school: "Paragon International University",
+    url: "https://www.paragoniu.edu.kh",
+    status: "Awarded & accepted",
+    note: "Full scholarship · Bachelor of Management Information Systems (2023 – Present)",
+    accepted: true,
   },
   {
+    school: "CamTech University",
+    status: "Offered",
+    note: "Full scholarship offer",
+  },
+  {
+    school: "University of Cambodia",
+    status: "Offered",
+    note: "Full scholarship offer",
+  },
+];
+
+export type Award = { title: string; detail: string; glyph: string };
+
+/** Other awards, shown below the scholarships. */
+export const awards: Award[] = [
+  {
     title: "1st Place, English Speaking Competition",
-    detail: "Grades 10–12",
+    detail: "Hello American School · Grades 10–12",
     glyph: "🏆",
   },
 ];
